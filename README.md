@@ -1,4 +1,4 @@
-# +1UP Frontend [![Build Status](https://travis-ci.org/Plus1Up/plus-one-up.svg?branch=master)](https://travis-ci.org/Plus1Up/plus-one-up) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/49d0f21dce2744949e87e601b74b9e6c)](https://www.codacy.com/app/wzieba/plus-one-up?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Plus1Up/plus-one-up&amp;utm_campaign=Badge_Grade)
+# +1UP Frontend [![Build Status](https://travis-ci.org/Plus1Up/Plus1UpFrontend.svg?branch=master)](https://travis-ci.org/Plus1Up/Plus1UpFrontend) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/49d0f21dce2744949e87e601b74b9e6c)](https://www.codacy.com/app/wzieba/plus-one-up?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Plus1Up/plus-one-up&amp;utm_campaign=Badge_Grade)
 
 ## HOWTO'S
 
