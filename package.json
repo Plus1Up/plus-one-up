@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "webpack-dev-server --port 3000 --content-base app --config config/webpack.config.dev.js",
     "build:prod": "./node_modules/.bin/webpack --config config/webpack.config.prod.js",
     "build:dev": "./node_modules/.bin/webpack --config config/webpack.config.dev.js",
