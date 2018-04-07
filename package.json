@@ -10,9 +10,7 @@
     "build:dev": "./node_modules/.bin/webpack --config config/webpack.config.dev.js",
     "server:prod": "node server.prod.js",
     "postinstall": "npm run build:prod",
-    "start": "npm run server:prod",
-    "lint": "eslint.js",
-    "test": "mocha"
+    "start": "npm run server:prod"
   },
   "author": "",
   "license": "ISC",
