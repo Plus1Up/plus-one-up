@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import React, { Component } from 'react';
 import { MuiThemeProvider } from 'material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -25,7 +25,7 @@ const styles = {
     overflowY: 'auto',
   },
   tabtab: {
-    backgroundColor: "#E53935",
+    backgroundColor: '#E53935',
   },
 };
 
@@ -50,7 +50,7 @@ class Clients extends Component {
         })
       })
       .catch(error =>
-        console.log("error",error)),
+        console.log('error',error)),
     axios
       .get('/clients?is_pending=true')
       .then(response => {
@@ -60,7 +60,7 @@ class Clients extends Component {
         })
       })
       .catch(error =>
-        console.log("error",error)),
+        console.log('error',error)),
     axios
       .get('/clients?is_active=false')
       .then(response => {
@@ -70,7 +70,7 @@ class Clients extends Component {
         })
       })
       .catch(error =>
-        console.log("error",error))
+        console.log('error',error))
   }
 
   render() {
@@ -78,17 +78,17 @@ class Clients extends Component {
       <MuiThemeProvider>
       <Page>
       <div className='clients-wrapper'>
-        <h1 id="inline1">KLIENCI</h1>
+        <h1 id='inline1'>KLIENCI</h1>
           <Link to={'/coach/clients/add_client'}>
-            <RaisedButton id="inline2"
-              label="Dodaj klienta"
-              labelPosition="before"
-              backgroundColor="#E53935"
-              labelColor="#FFFFFF"
+            <RaisedButton id='inline2'
+              label='Dodaj klienta'
+              labelPosition='before'
+              backgroundColor='#E53935'
+              labelColor='#FFFFFF'
             />
           </Link>
           <Tabs inkBarStyle={{backgroundColor: '#ffffff'}}>
-            <Tab label="Aktywni" style={styles.tabtab}>
+            <Tab label='Aktywni' style={styles.tabtab}>
             <div style={styles.root}>
               <GridList
                 cellHeight={250}
@@ -111,7 +111,7 @@ class Clients extends Component {
               </GridList>
             </div>
             </Tab>
-            <Tab label="Oczekujący" style={styles.tabtab} >
+            <Tab label='Oczekujący' style={styles.tabtab} >
             <div style={styles.root}>
               <GridList
                 cellHeight={250}
@@ -123,7 +123,7 @@ class Clients extends Component {
                   <GridTile
                     key={tile.id}
                     title={<span>{tile.name} {tile.last_name}</span>}
-                    actionIcon={<FlatButton label="Anuluj zaproszenie" fullWidth={true} />}
+                    actionIcon={<FlatButton label='Anuluj zaproszenie' fullWidth={true} />}
                   >
                     <img src='../../../assets/images/avatar.png' />
                   </GridTile>
@@ -131,7 +131,7 @@ class Clients extends Component {
               </GridList>
             </div>
             </Tab>
-            <Tab label="Zablokowani" style={styles.tabtab} >
+            <Tab label='Zablokowani' style={styles.tabtab} >
             <div style={styles.root}>
               <GridList
                 cellHeight={250}

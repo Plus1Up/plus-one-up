@@ -17,7 +17,7 @@ const styles = {
     minWidth: 170,
   },
   tabtab: {
-    backgroundColor: "#E53935",
+    backgroundColor: '#E53935',
   },
 };
 
@@ -27,16 +27,16 @@ class ClientInfo extends Component {
 
     this.state = {
       data: {
-        "id":'',
-        "coach_id":'',
-        "mail_address":'',
-        "password":'',
-        "name":'',
-        "last_name":'',
-        "is_pending":'',
-        "is_active":'',
-        "created_at":'',
-        "updated_at":''
+        'id':'',
+        'coach_id':'',
+        'mail_address':'',
+        'password':'',
+        'name':'',
+        'last_name':'',
+        'is_pending':'',
+        'is_active':'',
+        'created_at':'',
+        'updated_at':''
       },
       error: '',
     };
@@ -49,7 +49,7 @@ class ClientInfo extends Component {
           this.setState({
             ...this.state,
             data: response.data.data
-          })
+          });
         })
       }
   }
@@ -82,10 +82,10 @@ class ClientInfo extends Component {
     const isPending = this.state.data.is_pending;
     return (
       <Page>
-        <div className="client-info-wrapper">
+        <div className='client-info-wrapper'>
           <div>
-          <div className="client-info">
-            <div className="usr-picture">
+          <div className='client-info'>
+            <div className='usr-picture'>
               <img src='../../../assets/images/avatar.png' />
             </div>
             <div>
@@ -93,9 +93,9 @@ class ClientInfo extends Component {
               <p>{this.state.data.mail_address}</p>
               <div>
                 {isActive ? (
-                  <RaisedButton onClick={this.onHandleClickT} label="Blokuj" />
+                  <RaisedButton onClick={this.onHandleClickT} label='Blokuj' />
                 ) : (
-                  <RaisedButton onClick={this.onHandleClickF} label="Odblokuj" />
+                  <RaisedButton onClick={this.onHandleClickF} label='Odblokuj' />
                 )}
 
               </div>
@@ -106,18 +106,18 @@ class ClientInfo extends Component {
             <Tabs
               value={this.state.value}
               onChange={this.handleChange}
-              className="tabstabs"
+              className='tabstabs'
               inkBarStyle={{backgroundColor: '#ffffff'}} >
-              <Tab label="Odbyte treningi" value="a" style={styles.tabtab}>
+              <Tab label='Odbyte treningi' value='a' style={styles.tabtab}>
                 <DoneTraining />
               </Tab>
-              <Tab label="Treningi" value="b" style={styles.tabtab} >
+              <Tab label='Treningi' value='b' style={styles.tabtab} >
                 <Trainings />
               </Tab>
-              <Tab label="Dieta" value="c" style={styles.tabtab} >
+              <Tab label='Dieta' value='c' style={styles.tabtab} >
                 <Diet />
               </Tab>
-              <Tab label="Ustawienia" value="d" style={styles.tabtab} >
+              <Tab label='Ustawienia' value='d' style={styles.tabtab} >
 
               </Tab>
             </Tabs>

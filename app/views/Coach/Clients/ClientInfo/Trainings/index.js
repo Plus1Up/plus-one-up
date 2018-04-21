@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem} from "material-ui";
-import {Link} from "react-router-dom";
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem} from 'material-ui';
+import {Link} from 'react-router-dom';
 import './styles.css';
 
 import Page from 'components/Page';
@@ -19,7 +19,7 @@ class Trainings extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className='container'>
           <Table displaySelectAll={false} selectable={false}>
             <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
               <TableRow>
@@ -48,7 +48,7 @@ class Trainings extends Component {
           </Table>
         </div>
       </div>
-    )
+    );
   }
 }
 
