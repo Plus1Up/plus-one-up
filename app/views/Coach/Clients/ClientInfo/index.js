@@ -93,9 +93,9 @@ class ClientInfo extends Component {
               <p>{this.state.data.mail_address}</p>
               <div>
                 {isActive ? (
-                  <RaisedButton onClick={this.onHandleClickT} label='Blokuj' />
+                  <RaisedButton onClick={this.onHandleClickF} label='Blokuj' />
                 ) : (
-                  <RaisedButton onClick={this.onHandleClickF} label='Odblokuj' />
+                  <RaisedButton onClick={this.onHandleClickT} label='Odblokuj' />
                 )}
 
               </div>
