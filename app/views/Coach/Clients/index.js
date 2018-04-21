@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import React, { Component } from 'react';
 import { MuiThemeProvider } from 'material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -22,6 +23,9 @@ const styles = {
     width: 'auto',
     height: 'auto',
     overflowY: 'auto',
+  },
+  tabtab: {
+    backgroundColor: "#E53935",
   },
 };
 
@@ -73,40 +77,46 @@ class Clients extends Component {
     return (
       <MuiThemeProvider>
       <Page>
+      <div className='test'>
         <h1 id="inline1">KLIENCI</h1>
-          <RaisedButton id="inline2"
-                label="Dodaj klienta"
-                labelPosition="before"
-                href="/coach/clients/add_client"
-                backgroundColor="#E9967A"
-                labelColor="#FFFFFF"
-          />
-          <Tabs>
-            <Tab label="Aktywni" >
+          <Link to={'/coach/clients/add_client'}>
+            <RaisedButton id="inline2"
+              label="Dodaj klienta"
+              labelPosition="before"
+              backgroundColor="#E53935"
+              labelColor="#FFFFFF"
+            />
+          </Link>
+          <Tabs inkBarStyle={{backgroundColor: '#ffffff'}}>
+            <Tab label="Aktywni" style={styles.tabtab}>
             <div style={styles.root}>
               <GridList
-                cellHeight={350}
+                cellHeight={250}
                 style={styles.gridList}
+                cols={3}
               >
                 <Subheader>Aktywni klienci</Subheader>
                 {this.state.activeClientsList.map((tile) => (
-                  <GridTile
-                    key={tile.id}
-                    title={<span>{tile.name} {tile.last_name}</span>}
-                    subtitle={<span>ostatni trening: <b>{tile.updated_at}</b></span>}
-                    actionIcon={<IconButton><InfoIcon /></IconButton>}
-                  >
-                    <img src='../../../assets/images/avatar.png' />
-                  </GridTile>
+                  <Link to={'/coach/clients/'+tile.id} >
+                    <GridTile
+                      key={tile.id}
+                      title={<span>{tile.name} {tile.last_name}</span>}
+                      subtitle={<span>ostatni trening: <b>{tile.updated_at}</b></span>}
+                      actionIcon={<IconButton><InfoIcon /></IconButton>}
+                    >
+                      <img src='../../../assets/images/avatar.png' />
+                    </GridTile>
+                  </Link>
                 ))}
               </GridList>
             </div>
             </Tab>
-            <Tab label="Oczekujący" >
+            <Tab label="Oczekujący" style={styles.tabtab} >
             <div style={styles.root}>
               <GridList
-                cellHeight={350}
+                cellHeight={250}
                 style={styles.gridList}
+                cols={3}
               >
                 <Subheader>Oczekujący klienci</Subheader>
                 {this.state.pendingClientsList.map((tile) => (
@@ -121,28 +131,32 @@ class Clients extends Component {
               </GridList>
             </div>
             </Tab>
-            <Tab label="Zablokowani" >
+            <Tab label="Zablokowani" style={styles.tabtab} >
             <div style={styles.root}>
               <GridList
-                cellHeight={350}
+                cellHeight={250}
                 style={styles.gridList}
+                cols={3}
               >
                 <Subheader>Zablokowani klienci</Subheader>
                 {this.state.blockedClientsList.map((tile) => (
-                  <GridTile
-                    key={tile.id}
-                    title={<span>{tile.name} {tile.last_name}</span>}
-                    //todo - data zablokowania
-                    subtitle={<span>zablokowany: <b>{tile.updated_at}</b></span>}
-                    actionIcon={<IconButton><InfoIcon /></IconButton>}
-                  >
-                    <img src='../../../assets/images/avatar.png' />
-                  </GridTile>
+                  <Link to={'/coach/clients/'+tile.id} >
+                    <GridTile
+                      key={tile.id}
+                      title={<span>{tile.name} {tile.last_name}</span>}
+                      //todo - data zablokowania
+                      subtitle={<span>zablokowany: <b>{tile.updated_at}</b></span>}
+                      actionIcon={<IconButton><InfoIcon /></IconButton>}
+                    >
+                      <img src='../../../assets/images/avatar.png' />
+                    </GridTile>
+                  </Link>
                 ))}
               </GridList>
             </div>
             </Tab>
           </Tabs>
+      </div>
       </Page>
       </MuiThemeProvider>
     )

@@ -1,10 +1,10 @@
-import express from "express";
+var express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
 const config = {
   project_root: 'public',
-  index_html: 'app.html',
+  index_html: 'index.html',
 }
 
 app.use(express.static(`${__dirname}/${config.project_root}`));
