@@ -5,9 +5,9 @@ import { RaisedButton } from 'material-ui';
 import './styles.css';
 
 import Page from 'components/Page';
-import DoneTraining from 'views/coach/clients/clientinfo/DoneTraining';
-import Trainings from 'views/coach/clients/clientinfo/Trainings';
-import Diet from 'views/coach/clients/clientinfo/Diet';
+import DoneTraining from 'views/coach/clients/clientinfo/donetraining';
+import Trainings from 'views/coach/clients/clientinfo/trainings';
+import Diet from 'views/coach/clients/clientinfo/diet';
 
 
 const styles = {
