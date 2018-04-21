@@ -77,7 +77,7 @@ class Clients extends Component {
     return (
       <MuiThemeProvider>
       <Page>
-      <div className='test'>
+      <div className='clients-wrapper'>
         <h1 id="inline1">KLIENCI</h1>
           <Link to={'/coach/clients/add_client'}>
             <RaisedButton id="inline2"

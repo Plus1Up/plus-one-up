@@ -107,8 +107,7 @@ class ClientInfo extends Component {
               value={this.state.value}
               onChange={this.handleChange}
               className="tabstabs"
-              inkBarStyle={{backgroundColor: '#ffffff'}}
-            >
+              inkBarStyle={{backgroundColor: '#ffffff'}} >
               <Tab label="Odbyte treningi" value="a" style={styles.tabtab}>
                 <DoneTraining />
               </Tab>
