@@ -144,7 +144,6 @@ class Clients extends Component {
                     <GridTile
                       key={tile.id}
                       title={<span>{tile.name} {tile.last_name}</span>}
-                      //todo - data zablokowania
                       subtitle={<span>zablokowany: <b>{tile.updated_at}</b></span>}
                       actionIcon={<IconButton><InfoIcon /></IconButton>}
                     >
