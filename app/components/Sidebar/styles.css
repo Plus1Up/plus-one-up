@@ -1,5 +1,6 @@
 .sidebar-container {
-  width: 300px;
+  width: 250px;
   height: 100%;
   background-color: #FFFAF0;
+  position: fixed;
 }

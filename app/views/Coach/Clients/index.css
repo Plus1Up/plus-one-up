@@ -1,7 +1,7 @@
 h1, h2 {
     margin-top:10px;
     font-family: Calibri;
-	font-size: 38px;
+    font-size: 38px;
     font-weight: bold;
     color: #555;
     line-height: 50px;
@@ -9,6 +9,11 @@ h1, h2 {
 
 body {
     font-family: Calibri;
+}
+
+.clients-wrapper {
+  width: 1500px;
+  margin: 0 auto;
 }
 
 #inline1 {display:inline-block;margin-right:50px;} 
