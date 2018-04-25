@@ -86,7 +86,7 @@ class ClientInfo extends Component {
           <div>
           <div className='client-info'>
             <div className='usr-picture'>
-              <img src='../../../assets/images/avatar.png' />
+              <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
             </div>
             <div>
               <p>{this.state.data.name} {this.state.data.last_name}</p>

@@ -21,7 +21,7 @@ class Diet extends Component {
       <div>
         <div className='container'>
           <div className='half-container'>
-            <img src='../../../assets/images/diet.png' />
+            <img src='http://pluspng.com/img-png/eat-healthy-food-png-eating-living-healthy-800.png' />
           </div>
           <div className='half-container'>
           <RaisedButton label='Pobierz plan' className='plan-btn'></RaisedButton>

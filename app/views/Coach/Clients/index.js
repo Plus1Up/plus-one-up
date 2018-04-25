@@ -104,7 +104,7 @@ class Clients extends Component {
                       subtitle={<span>ostatni trening: <b>{tile.updated_at}</b></span>}
                       actionIcon={<IconButton><InfoIcon /></IconButton>}
                     >
-                      <img src='../../../assets/images/avatar.png' />
+                      <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
                     </GridTile>
                   </Link>
                 ))}
@@ -125,7 +125,7 @@ class Clients extends Component {
                     title={<span>{tile.name} {tile.last_name}</span>}
                     actionIcon={<FlatButton label='Anuluj zaproszenie' fullWidth={true} />}
                   >
-                    <img src='../../../assets/images/avatar.png' />
+                    <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
                   </GridTile>
                 ))}
               </GridList>
@@ -147,7 +147,7 @@ class Clients extends Component {
                       subtitle={<span>zablokowany: <b>{tile.updated_at}</b></span>}
                       actionIcon={<IconButton><InfoIcon /></IconButton>}
                     >
-                      <img src='../../../assets/images/avatar.png' />
+                      <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
                     </GridTile>
                   </Link>
                 ))}

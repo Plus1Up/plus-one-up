@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import './styles.css';
 import TextField from 'material-ui/TextField';
 import { MuiThemeProvider } from 'material-ui';
@@ -41,6 +41,8 @@ const Views = (props) => (
           backgroundColor="#E53935"
           labelColor="#FFFFFF"
         />
+        <Link to ="/admin">Admin View</Link>
+        <Link to ="/coach">Coach View</Link>
       </div>
     </MuiThemeProvider>
   </div>
