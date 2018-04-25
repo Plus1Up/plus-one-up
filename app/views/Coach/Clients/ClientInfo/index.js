@@ -22,7 +22,7 @@ const styles = {
   },
   dialog: {
     width: 500,
-    maxWidth: 'none',
+    maxWidth: "none",
   },
 };
 
