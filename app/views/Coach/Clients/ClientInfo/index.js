@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { clients } from 'services/api';
 import {Tab, Tabs} from 'material-ui/Tabs';
-import { RaisedButton } from 'material-ui';
+import { RaisedButton, FlatButton, Dialog } from 'material-ui';
+import {Link} from "react-router-dom";
 import './styles.css';
 
 import Page from 'components/Page';
@@ -18,6 +19,10 @@ const styles = {
   },
   tabtab: {
     backgroundColor: '#E53935',
+  },
+  dialog: {
+    width: 500,
+    maxWidth: 'none',
   },
 };
 
@@ -38,9 +43,18 @@ class ClientInfo extends Component {
         'created_at':'',
         'updated_at':''
       },
+      open: false,
       error: '',
     };
   }
+
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   componentDidMount() {
     if(this.clientId) {
@@ -54,32 +68,37 @@ class ClientInfo extends Component {
       }
   }
 
-  onHandleClickT = () => {
-    clients.put(this.clientId, {
-      is_active: 'true'
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  }
-
-  onHandleClickF = () => {
-    clients.put(this.clientId, {
-      is_active: 'false'
-    })
+  onHandleClick = () => {
+    if (!this.state.data.is_active) {
+      clients.put(this.clientId, {
+        is_active: 'true'
+      })
+    } else {
+      clients.put(this.clientId, {
+        is_active: 'false'
+      })
+    }
+    this.setState({open: false});
   }
 
   get clientId() {
     return this.props.match.params.id;
   }
 
-
   render() {
     const isActive = this.state.data.is_active;
-    const isPending = this.state.data.is_pending;
+    const actions = [
+      <FlatButton
+        label="Anuluj"
+        primary={true}
+        onClick={this.handleClose}
+      />,
+      <Link to="/coach/clients"><FlatButton
+        label="Tak"
+        primary={true}
+        onClick={this.onHandleClick}
+      /></Link>,
+    ];
     return (
       <Page>
         <div className='client-info-wrapper'>
@@ -93,10 +112,35 @@ class ClientInfo extends Component {
               <p>{this.state.data.mail_address}</p>
               <div>
                 {isActive ? (
-                  <RaisedButton onClick={this.onHandleClickF} label='Blokuj' />
+                  <div>
+                    <RaisedButton label="Blokuj" onClick={this.handleOpen} />
+                    <Dialog
+                      title="Blokowanie klienta"
+                      actions={actions}
+                      modal={false}
+                      open={this.state.open}
+                      onRequestClose={this.handleClose}
+                      contentStyle={styles.dialog}
+                    >
+                      Czy na pewno chcesz zablokować tego klienta?
+                    </Dialog>
+                  </div>
                 ) : (
-                  <RaisedButton onClick={this.onHandleClickT} label='Odblokuj' />
+                  <div>
+                    <RaisedButton label="Odblokuj" onClick={this.handleOpen} />
+                    <Dialog
+                      title="Odblokowanie klienta"
+                      actions={actions}
+                      modal={false}
+                      open={this.state.open}
+                      onRequestClose={this.handleClose}
+                      contentStyle={styles.dialog}
+                    >
+                      Czy na pewno chcesz odblokować tego klienta?
+                    </Dialog>
+                  </div>
                 )}
+
 
               </div>
             </div>
