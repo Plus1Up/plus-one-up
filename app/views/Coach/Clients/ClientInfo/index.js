@@ -9,7 +9,7 @@ import Page from 'components/Page';
 import DoneTraining from 'views/Coach/Clients/ClientInfo/DoneTraining';
 import Trainings from 'views/Coach/Clients/ClientInfo/Trainings';
 import Diet from 'views/Coach/Clients/ClientInfo/Diet';
-
+import avatarImg from 'assets/images/avatar.png'
 
 const styles = {
   button: {
@@ -18,11 +18,14 @@ const styles = {
     minWidth: 170,
   },
   tabtab: {
-    backgroundColor: '#E53935',
+    backgroundColor: "#E53935",
   },
   dialog: {
     width: 500,
     maxWidth: "none",
+  },
+  flatbtn: {
+    color: "#000000"
   },
 };
 
@@ -69,13 +72,18 @@ class ClientInfo extends Component {
   }
 
   onHandleClick = () => {
+    console.log(this);
     if (!this.state.data.is_active) {
       clients.put(this.clientId, {
         is_active: 'true'
+      }).then(() => {
+        this.props.history.push('/coach/clients');
       })
     } else {
       clients.put(this.clientId, {
         is_active: 'false'
+      }).then(() => {
+        this.props.history.push('/coach/clients');
       })
     }
     this.setState({open: false});
@@ -90,14 +98,14 @@ class ClientInfo extends Component {
     const actions = [
       <FlatButton
         label="Anuluj"
-        primary={true}
         onClick={this.handleClose}
+        styles={styles.flatbtn}
       />,
-      <Link to="/coach/clients"><FlatButton
+      <FlatButton
         label="Tak"
-        primary={true}
         onClick={this.onHandleClick}
-      /></Link>,
+        styles={styles.flatbtn}
+      />,
     ];
     return (
       <Page>
@@ -105,44 +113,39 @@ class ClientInfo extends Component {
           <div>
           <div className='client-info'>
             <div className='usr-picture'>
-              <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
+              <img src={avatarImg} />
             </div>
             <div>
               <p>{this.state.data.name} {this.state.data.last_name}</p>
               <p>{this.state.data.mail_address}</p>
-              <div>
-                {isActive ? (
-                  <div>
-                    <RaisedButton label="Blokuj" onClick={this.handleOpen} />
-                    <Dialog
-                      title="Blokowanie klienta"
-                      actions={actions}
-                      modal={false}
-                      open={this.state.open}
-                      onRequestClose={this.handleClose}
-                      contentStyle={styles.dialog}
-                    >
-                      Czy na pewno chcesz zablokować tego klienta?
-                    </Dialog>
-                  </div>
-                ) : (
-                  <div>
-                    <RaisedButton label="Odblokuj" onClick={this.handleOpen} />
-                    <Dialog
-                      title="Odblokowanie klienta"
-                      actions={actions}
-                      modal={false}
-                      open={this.state.open}
-                      onRequestClose={this.handleClose}
-                      contentStyle={styles.dialog}
-                    >
-                      Czy na pewno chcesz odblokować tego klienta?
-                    </Dialog>
-                  </div>
-                )}
-
-
-              </div>
+              {isActive ?
+                <div>
+                  <RaisedButton label="Blokuj" onClick={this.handleOpen} />
+                  <Dialog
+                    title="Blokowanie klienta"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.open}
+                    onRequestClose={this.handleClose}
+                    contentStyle={styles.dialog}
+                  >
+                    Czy na pewno chcesz zablokować tego klienta?
+                  </Dialog>
+                </div>
+                :
+                <div>
+                  <RaisedButton label="Odblokuj" onClick={this.handleOpen} />
+                  <Dialog
+                    title="Odblokowanie klienta"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.open}
+                    onRequestClose={this.handleClose}
+                    contentStyle={styles.dialog}
+                  >
+                    Czy na pewno chcesz odblokować tego klienta?
+                  </Dialog>
+              </div>}
             </div>
           </div>
           </div>

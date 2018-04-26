@@ -10,6 +10,7 @@ import Subheader from 'material-ui/Subheader';
 import InfoIcon from 'material-ui-icons/Info';
 
 import axios from 'config/axios';
+import avatarImg from 'assets/images/avatar.png'
 import Page from 'components/Page';
 import './index.css';
 
@@ -26,6 +27,9 @@ const styles = {
   },
   tabtab: {
     backgroundColor: '#E53935',
+  },
+  cancelbtn: {
+    color: "#A9A9A9"
   },
 };
 
@@ -93,18 +97,17 @@ class Clients extends Component {
               <GridList
                 cellHeight={250}
                 style={styles.gridList}
-                cols={3}
+                cols={6}
               >
                 <Subheader>Aktywni klienci</Subheader>
                 {this.state.activeClientsList.map((tile) => (
-                  <Link to={'/coach/clients/'+tile.id} >
+                  <Link to={'/coach/clients/'+tile.id} key={tile.id} >
                     <GridTile
-                      key={tile.id}
                       title={<span>{tile.name} {tile.last_name}</span>}
                       subtitle={<span>ostatni trening: <b>{tile.updated_at}</b></span>}
                       actionIcon={<IconButton><InfoIcon /></IconButton>}
                     >
-                      <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
+                      <img src={avatarImg} />
                     </GridTile>
                   </Link>
                 ))}
@@ -116,16 +119,16 @@ class Clients extends Component {
               <GridList
                 cellHeight={250}
                 style={styles.gridList}
-                cols={3}
+                cols={6}
               >
                 <Subheader>Oczekujący klienci</Subheader>
                 {this.state.pendingClientsList.map((tile) => (
                   <GridTile
                     key={tile.id}
                     title={<span>{tile.name} {tile.last_name}</span>}
-                    actionIcon={<FlatButton label='Anuluj zaproszenie' fullWidth={true} />}
+                    actionIcon={<FlatButton label='Anuluj zaproszenie' fullWidth={true} style={styles.cancelbtn} />}
                   >
-                    <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
+                    <img src={avatarImg} />
                   </GridTile>
                 ))}
               </GridList>
@@ -136,18 +139,17 @@ class Clients extends Component {
               <GridList
                 cellHeight={250}
                 style={styles.gridList}
-                cols={3}
+                cols={6}
               >
                 <Subheader>Zablokowani klienci</Subheader>
                 {this.state.blockedClientsList.map((tile) => (
-                  <Link to={'/coach/clients/'+tile.id} >
+                  <Link to={'/coach/clients/'+tile.id} key={tile.id} >
                     <GridTile
-                      key={tile.id}
                       title={<span>{tile.name} {tile.last_name}</span>}
                       subtitle={<span>zablokowany: <b>{tile.updated_at}</b></span>}
                       actionIcon={<IconButton><InfoIcon /></IconButton>}
                     >
-                      <img src='https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png' />
+                      <img src={avatarImg} />
                     </GridTile>
                   </Link>
                 ))}

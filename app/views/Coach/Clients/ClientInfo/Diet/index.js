@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import './styles.css';
 
 import Page from 'components/Page';
+import dietImg from 'assets/images/diet.png'
 
 class Diet extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Diet extends Component {
       <div>
         <div className='container'>
           <div className='half-container'>
-            <img src='http://pluspng.com/img-png/eat-healthy-food-png-eating-living-healthy-800.png' />
+            <img src={dietImg} />
           </div>
           <div className='half-container'>
           <RaisedButton label='Pobierz plan' className='plan-btn'></RaisedButton>
