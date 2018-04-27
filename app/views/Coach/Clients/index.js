@@ -46,7 +46,7 @@ class Clients extends Component {
 
   componentDidMount() {
     axios
-      .get('/clients?is_active=true')
+      .get('api/clients?is_active=true')
       .then(response => {
         console.log(response);
         this.setState({
@@ -56,7 +56,7 @@ class Clients extends Component {
       .catch(error =>
         console.log('error',error)),
     axios
-      .get('/clients?is_pending=true')
+      .get('api/clients?is_pending=true')
       .then(response => {
         console.log(response);
         this.setState({
@@ -66,7 +66,7 @@ class Clients extends Component {
       .catch(error =>
         console.log('error',error)),
     axios
-      .get('/clients?is_active=false')
+      .get('api/clients?is_active=false')
       .then(response => {
         console.log(response);
         this.setState({
