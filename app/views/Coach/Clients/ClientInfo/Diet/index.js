@@ -58,7 +58,7 @@ class Diet extends Component {
         const blob = new Blob([response.data], {
           type: 'application/pdf',
         });
-        FileSaver.saveAs(blob, dieta_cud.pdf);
+        FileSaver.saveAs(blob, "dieta_cud.pdf");
     });
   }
 
