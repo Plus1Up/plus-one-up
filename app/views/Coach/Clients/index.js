@@ -143,7 +143,7 @@ class Clients extends Component {
               >
                 <Subheader>Zablokowani klienci</Subheader>
                 {this.state.blockedClientsList.map((tile) => (
-                  <Link to={'/coach/clients/'+tile.id} key={tile.id} >
+                  <Link to={"/coach/clients/"+tile.id} key={tile.id} >
                     <GridTile
                       title={<span>{tile.name} {tile.last_name}</span>}
                       subtitle={<span>zablokowany: <b>{tile.updated_at}</b></span>}
