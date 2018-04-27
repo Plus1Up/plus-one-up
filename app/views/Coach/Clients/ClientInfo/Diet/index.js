@@ -12,6 +12,8 @@ class Diet extends Component {
     super(props);
 
     this.state = {
+      clientId: null,
+      dietPlanFileName: '',
       isHidden: true,
       selectedFile: null
     };
@@ -52,7 +54,7 @@ class Diet extends Component {
     const FileSaver = require('file-saver');
     const axios = require('axios');
     diets
-     .get(10, "dieta_cud.pdf")
+     .get(this.state.clientId, this.state.dietPlanFileName)
      .then(response => {
         console.log(response);
         const blob = new Blob([response.data], {
@@ -63,6 +65,16 @@ class Diet extends Component {
   }
 
   componentDidMount() {
+    if(this.clientId) {
+      clients.get(this.clientId)
+        .then(response => {
+          this.setState({
+            ...this.state,
+            clientId: response.data.data.id,
+            dietPlanFileName: response.data.data.diet_plan_file_name,
+          });
+        })
+      }
   }
 
   render() {
