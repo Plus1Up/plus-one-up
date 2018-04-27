@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { clients } from 'services/api';
 import {Tab, Tabs} from 'material-ui/Tabs';
-import { RaisedButton, FlatButton, Dialog } from 'material-ui';
+import { RaisedButton, FlatButton, Dialog } from "material-ui";
 import {Link} from "react-router-dom";
 import './styles.css';
 
@@ -9,7 +9,7 @@ import Page from 'components/Page';
 import DoneTraining from 'views/Coach/Clients/ClientInfo/DoneTraining';
 import Trainings from 'views/Coach/Clients/ClientInfo/Trainings';
 import Diet from 'views/Coach/Clients/ClientInfo/Diet';
-import avatarImg from 'assets/images/avatar.png'
+import avatarImg from "assets/images/avatar.png";
 
 const styles = {
   button: {
@@ -72,18 +72,17 @@ class ClientInfo extends Component {
   }
 
   onHandleClick = () => {
-    console.log(this);
     if (!this.state.data.is_active) {
       clients.put(this.clientId, {
         is_active: 'true'
       }).then(() => {
-        this.props.history.push('/coach/clients');
+        this.props.history.push("/coach/clients");
       })
     } else {
       clients.put(this.clientId, {
         is_active: 'false'
       }).then(() => {
-        this.props.history.push('/coach/clients');
+        this.props.history.push("/coach/clients");
       })
     }
     this.setState({open: false});

@@ -9,7 +9,7 @@ const config = {
 
 app.use(express.static(`${__dirname}/${config.project_root}`));
 
-app.get('*', function (req, res) {
+app.get("*", function (req, res) {
   return res.sendFile(`${__dirname}/${config.project_root}/${config.index_html}`);
 });
 

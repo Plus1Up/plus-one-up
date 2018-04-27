@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem, RaisedButton} from 'material-ui';
-import {Link} from 'react-router-dom';
-import './styles.css';
+import React, {Component} from "react";
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem, RaisedButton} from "material-ui";
+import {Link} from "react-router-dom";
+import "./styles.css";
 
-import Page from 'components/Page';
-import dietImg from 'assets/images/diet.png'
+import Page from "components/Page";
+import dietImg from "assets/images/diet.png";
 
 class Diet extends Component {
   constructor(props) {
@@ -20,14 +20,14 @@ class Diet extends Component {
   render() {
     return (
       <div>
-        <div className='container'>
-          <div className='half-container'>
+        <div className="container">
+          <div className="half-container">
             <img src={dietImg} />
           </div>
-          <div className='half-container'>
-          <RaisedButton label='Pobierz plan' className='plan-btn'></RaisedButton>
-          <RaisedButton label='Usuń plan' className='plan-btn'></RaisedButton>
-          <RaisedButton label='Nowy plan' className='plan-btn'></RaisedButton>
+          <div className="half-container">
+          <RaisedButton label="Pobierz plan" className="plan-btn"></RaisedButton>
+          <RaisedButton label="Usuń plan" className="plan-btn"></RaisedButton>
+          <RaisedButton label="Nowy plan" className="plan-btn"></RaisedButton>
           </div>
         </div>
       </div>

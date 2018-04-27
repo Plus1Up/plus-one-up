@@ -10,7 +10,7 @@ import Subheader from 'material-ui/Subheader';
 import InfoIcon from 'material-ui-icons/Info';
 
 import axios from 'config/axios';
-import avatarImg from 'assets/images/avatar.png'
+import avatarImg from "assets/images/avatar.png";
 import Page from 'components/Page';
 import './index.css';
 
@@ -83,7 +83,7 @@ class Clients extends Component {
       <Page>
       <div className='clients-wrapper'>
         <h1 id='inline1'>KLIENCI</h1>
-          <Link to={'/coach/clients/add_client'}>
+          <Link to={"/coach/clients/add_client"}>
             <RaisedButton id='inline2'
               label='Dodaj klienta'
               labelPosition='before'
@@ -101,7 +101,7 @@ class Clients extends Component {
               >
                 <Subheader>Aktywni klienci</Subheader>
                 {this.state.activeClientsList.map((tile) => (
-                  <Link to={'/coach/clients/'+tile.id} key={tile.id} >
+                  <Link to={"/coach/clients/"+tile.id} key={tile.id} >
                     <GridTile
                       title={<span>{tile.name} {tile.last_name}</span>}
                       subtitle={<span>ostatni trening: <b>{tile.updated_at}</b></span>}
