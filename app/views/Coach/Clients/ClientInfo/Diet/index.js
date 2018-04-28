@@ -6,6 +6,7 @@ import { clients, diets } from "services/api";
 import "./styles.css";
 
 import Page from "components/Page";
+import dietImg from "assets/images/diet.png";
 
 class Diet extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ class Diet extends Component {
       <div>
         <div className='container'>
           <div className='half-container'>
-            <img src='../../../assets/images/diet.png' />
+            <img src={dietImg} />
           </div>
           <div className='half-container'>
           <RaisedButton label='Pobierz plan' className='plan-btn' onClick={this.fileDownloadHandler}></RaisedButton>
