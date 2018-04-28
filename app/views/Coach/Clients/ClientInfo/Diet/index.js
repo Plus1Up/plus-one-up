@@ -73,12 +73,12 @@ class Diet extends Component {
   componentDidMount() {
     if(this.clientId) {
       clients.get(this.clientId)
-        .then(response => {
+        .then((response) => {
           this.setState({
             ...this.state,
             dietPlanFileName: response.data.data.diet_plan_file_name,
           });
-        })
+        });
       }
   }
 
