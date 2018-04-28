@@ -35,7 +35,7 @@ class Diet extends Component {
   fileSelectedHandler = (event) => {
     this.setState({
       selectedFile: event.target.files[0]
-    })
+    });
   }
 
   fileUploadHandler = () => {
@@ -54,7 +54,6 @@ class Diet extends Component {
           dietPlanFileName: this.state.selectedFile.name,
         });
         alert("Nowy plan został dodany.");
-        Console.log(response);
       });
   }
 
@@ -63,8 +62,7 @@ class Diet extends Component {
     const axios = require("axios");
     diets
      .get(this.clientId, this.dietName)
-     .then(response => {
-        console.log(response);
+     .then((response) => {
         const blob = new Blob([response.data], {
           type: "application/pdf",
         });
