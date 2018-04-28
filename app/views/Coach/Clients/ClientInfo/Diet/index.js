@@ -12,8 +12,7 @@ class Diet extends Component {
     super(props);
 
     this.state = {
-      clientId: null,
-      dietPlanFileName: '',
+      dietPlanFileName: "",
       isHidden: true,
       selectedFile: null
     };
@@ -21,6 +20,10 @@ class Diet extends Component {
 
   get clientId() {
     return this.props.id;
+  }
+
+  get dietName() {
+    return this.state.dietPlanFileName;
   }
 
   toggleHidden () {
@@ -46,21 +49,26 @@ class Diet extends Component {
     clients
       .put(this.clientId, fd, config)
       .then(response => {
+        this.setState({
+          ...this.state,
+          dietPlanFileName: this.state.selectedFile.name,
+        });
+        alert('Nowy plan został dodany.');
         console.log(response);
       });
   }
 
-  fileDownloadHandler() {
+  fileDownloadHandler = () => {
     const FileSaver = require('file-saver');
     const axios = require('axios');
     diets
-     .get(this.state.clientId, this.state.dietPlanFileName)
+     .get(this.clientId, this.dietName)
      .then(response => {
         console.log(response);
         const blob = new Blob([response.data], {
           type: 'application/pdf',
         });
-        FileSaver.saveAs(blob, "dieta_cud.pdf");
+        FileSaver.saveAs(blob, this.dietName);
     });
   }
 
@@ -70,7 +78,6 @@ class Diet extends Component {
         .then(response => {
           this.setState({
             ...this.state,
-            clientId: response.data.data.id,
             dietPlanFileName: response.data.data.diet_plan_file_name,
           });
         })
