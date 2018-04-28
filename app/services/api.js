@@ -15,8 +15,8 @@ export const clients = {
 export const diets = {
   get: (clientId, dietPlanFileName) => (
     axios.get(`system/clients/${clientId}/diet_plan/${dietPlanFileName}`, {
-      responseType: 'arraybuffer',
-      headers: {'Accept': 'application/pdf'}
+      responseType: "arraybuffer",
+      headers: {"Accept": "application/pdf"}
     })
   ),
 };

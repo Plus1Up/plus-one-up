@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem, RaisedButton} from 'material-ui';
-import {Link} from 'react-router-dom';
-import {FileSaver} from 'file-saver';
+import React, {Component} from "react";
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem, RaisedButton} from "material-ui";
+import {Link} from "react-router-dom";
+import {FileSaver} from "file-saver";
 import { clients, diets } from "services/api";
-import './styles.css';
+import "./styles.css";
 
-import Page from 'components/Page';
+import Page from "components/Page";
 
 class Diet extends Component {
   constructor(props) {
@@ -29,10 +29,10 @@ class Diet extends Component {
   toggleHidden () {
     this.setState({
       isHidden: !this.state.isHidden
-    })
+    });
   }
 
-  fileSelectedHandler = event => {
+  fileSelectedHandler = (event) => {
     this.setState({
       selectedFile: event.target.files[0]
     })
@@ -40,33 +40,33 @@ class Diet extends Component {
 
   fileUploadHandler = () => {
     const fd = new FormData();
-    fd.append('diet_plan', this.state.selectedFile);
+    fd.append("diet_plan", this.state.selectedFile);
     const config = {
       headers: {
-        'content-type': 'multipart/form-data'
+        "content-type": "multipart/form-data"
       }
-    }
+    };
     clients
       .put(this.clientId, fd, config)
-      .then(response => {
+      .then((response) => {
         this.setState({
           ...this.state,
           dietPlanFileName: this.state.selectedFile.name,
         });
-        alert('Nowy plan został dodany.');
-        console.log(response);
+        alert("Nowy plan został dodany.");
+        Console.log(response);
       });
   }
 
   fileDownloadHandler = () => {
-    const FileSaver = require('file-saver');
-    const axios = require('axios');
+    const FileSaver = require("file-saver");
+    const axios = require("axios");
     diets
      .get(this.clientId, this.dietName)
      .then(response => {
         console.log(response);
         const blob = new Blob([response.data], {
-          type: 'application/pdf',
+          type: "application/pdf",
         });
         FileSaver.saveAs(blob, this.dietName);
     });
