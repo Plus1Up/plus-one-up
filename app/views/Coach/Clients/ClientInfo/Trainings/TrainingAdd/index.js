@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {DropDownMenu, MenuItem, RaisedButton, TextField} from "material-ui";
-import "./styles.css"
+import "./styles.css";
 import { trainings } from "services/api";
 
 import Form from "components/FormElements/Form";
@@ -17,7 +17,7 @@ const styles = {
     width: 10,
     margin: 10,
   }
-}
+};
 
 class TrainingAdd extends Component {
   constructor(props) {
@@ -30,8 +30,8 @@ class TrainingAdd extends Component {
         weekday: "",
       },
       clientId: this.props.clientId,
-    };
-  }
+    }
+  };
 
   componentDidMount() {
   }
@@ -48,7 +48,7 @@ class TrainingAdd extends Component {
     trainings.new(this.state.clientId, this.state.form)
       .then((response) => this.setState({
         ...this.state,
-      }))
+      }));
     alert("Trening został dodany.");
   }
 
@@ -78,7 +78,7 @@ class TrainingAdd extends Component {
           <RaisedButton style={styles.editButton} label="Dodaj" onClick={this.onHandleClick} />
         </div>
       </Form>
-    )
+    );
   }
 }
 

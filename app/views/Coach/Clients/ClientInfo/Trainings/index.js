@@ -47,7 +47,7 @@ class Trainings extends Component {
     this.setState({
       isEdited: !this.state.isEdited,
       trainingEdited: training
-    })
+    });
   }
 
   changeToAdd() {
@@ -61,12 +61,11 @@ class Trainings extends Component {
   }
 
   render() {
-    console.log(this.state)
     if (this.state.isEdited) {
       return <div className="special-container">
         <RaisedButton className="special-btn" label="Powrót do listy" onClick={() => this.changeToEdit()} />
         <TrainingDetails className="training-container" clientId={this.props.id} training={this.state.trainingEdited} />
-      </div>
+      </div>;
     }
     if (this.state.add) {
       return <div className="special-container">
