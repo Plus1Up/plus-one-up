@@ -1,0 +1,20 @@
+p.training {
+  cursor: pointer;
+  margin: 5px;
+}
+
+.special-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.special-btn {
+  margin: 10px;
+  height: 36px;
+}
+
+.contrainer {
+  display: flex;
+  flex-direction: column;
+}

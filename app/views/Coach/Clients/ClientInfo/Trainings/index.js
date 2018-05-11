@@ -1,10 +1,12 @@
 import React, {Component} from "react";
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem} from "material-ui";
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, DropDownMenu, MenuItem, RaisedButton} from "material-ui";
 import {Link} from "react-router-dom";
 import { trainings } from "services/api";
 import "./styles.css";
 
 import Page from "components/Page";
+import TrainingDetails from "views/Coach/Clients/ClientInfo/Trainings/TrainingDetails";
+import TrainingAdd from "views/Coach/Clients/ClientInfo/Trainings/TrainingAdd";
 
 class Trainings extends Component {
   constructor(props) {
@@ -19,6 +21,9 @@ class Trainings extends Component {
       saturdays: [],
       sundays: [],
       error: "",
+      isEdited: false,
+      add: false,
+      trainingEdited: null,
     };
   }
 
@@ -38,11 +43,37 @@ class Trainings extends Component {
         });
   }
 
+  changeToEdit(training) {
+    this.setState({
+      isEdited: !this.state.isEdited,
+      trainingEdited: training
+    })
+  }
+
+  changeToAdd() {
+    this.setState({
+      add: !this.state.add,
+    })
+  }
+
   get clientId() {
     return this.props.id;
   }
 
   render() {
+    console.log(this.state)
+    if (this.state.isEdited) {
+      return <div className="special-container">
+        <RaisedButton className="special-btn" label="Powrót do listy" onClick={() => this.changeToEdit()} />
+        <TrainingDetails className="training-container" clientId={this.props.id} training={this.state.trainingEdited} />
+      </div>
+    }
+    if (this.state.add) {
+      return <div className="special-container">
+        <RaisedButton className="special-btn" label="Powrót do listy" onClick={() => this.changeToAdd()} />
+        <TrainingAdd className="training-container" clientId={this.props.id} />
+      </div>
+    }
     return (
       <div>
         <div className='container'>
@@ -56,6 +87,7 @@ class Trainings extends Component {
                 <TableHeaderColumn>Piątek</TableHeaderColumn>
                 <TableHeaderColumn>Sobota</TableHeaderColumn>
                 <TableHeaderColumn>Niedziela</TableHeaderColumn>
+                <TableHeaderColumn></TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody displayRowCheckbox={false}>
@@ -64,7 +96,7 @@ class Trainings extends Component {
                 {
                   this.state.mondays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
                 </TableRowColumn>
@@ -72,7 +104,7 @@ class Trainings extends Component {
                 {
                   this.state.tuesdays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
                 </TableRowColumn>
@@ -80,7 +112,7 @@ class Trainings extends Component {
                 {
                   this.state.wednesdays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
                 </TableRowColumn>
@@ -88,7 +120,7 @@ class Trainings extends Component {
                 {
                   this.state.thursdays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
                 </TableRowColumn>
@@ -96,7 +128,7 @@ class Trainings extends Component {
                 {
                   this.state.fridays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
                 </TableRowColumn>
@@ -104,7 +136,7 @@ class Trainings extends Component {
                 {
                   this.state.saturdays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
                 </TableRowColumn>
@@ -112,9 +144,12 @@ class Trainings extends Component {
                 {
                   this.state.sundays
                   .map((training) => 
-                    <p>{training.name}</p>
+                    <p className="training" key={training.id} onClick={() => this.changeToEdit(training)}>{training.name}</p>
                   )
                 }
+                </TableRowColumn>
+                <TableRowColumn>
+                  <RaisedButton label="Dodaj" onClick={() => this.changeToAdd()} />
                 </TableRowColumn>
               </TableRow>
             </TableBody>

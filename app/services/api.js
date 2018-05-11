@@ -34,4 +34,7 @@ export const trainings = {
   put: (clientId, id, data) => (
     axios.put(`api/clients/${clientId}/trainings/${id}`, data)
   ),
+  delete: (clientId, id) => (
+    axios.delete(`api/clients/${clientId}/trainings/${id}`)
+  ),
 };
