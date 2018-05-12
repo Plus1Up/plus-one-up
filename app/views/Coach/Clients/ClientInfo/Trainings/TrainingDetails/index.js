@@ -4,9 +4,9 @@ import { trainings } from "services/api";
 import {Popconfirm} from "antd";
 import "./styles.css";
 
+import Form from "components/FormElements/Form";
 
 const hideAutoFillColorStyle = {
-import Form from "components/FormElements/Form";
   WebkitBoxShadow: "0 0 0 1000px white inset"
 };  
 const hintStyle = { 
