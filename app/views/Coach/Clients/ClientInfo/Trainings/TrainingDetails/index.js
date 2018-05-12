@@ -41,7 +41,7 @@ class TrainingDetails extends Component {
         this.setState({
           ...this.state,
           form: response.data.data
-        })
+        });
       });
   }
 
@@ -65,7 +65,7 @@ class TrainingDetails extends Component {
     trainings.delete(client, training)
       .then((response) => this.setState({
         ...this.state,
-      }))
+      }));
   }
 
   render() {
