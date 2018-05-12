@@ -53,7 +53,7 @@ class Trainings extends Component {
   changeToAdd() {
     this.setState({
       add: !this.state.add,
-    })
+    });
   }
 
   get clientId() {
@@ -71,7 +71,7 @@ class Trainings extends Component {
       return <div className="special-container">
         <RaisedButton className="special-btn" label="Powrót do listy" onClick={() => this.changeToAdd()} />
         <TrainingAdd className="training-container" clientId={this.props.id} />
-      </div>
+      </div>;
     }
     return (
       <div>

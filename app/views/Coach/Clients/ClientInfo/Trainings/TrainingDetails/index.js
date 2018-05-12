@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {DropDownMenu, MenuItem, RaisedButton, TextField} from "material-ui";
-import "./styles.css"
 import { trainings } from "services/api";
 import {Popconfirm} from "antd";
+import "./styles.css";
 
-import Form from "components/FormElements/Form";
 
 const hideAutoFillColorStyle = {
+import Form from "components/FormElements/Form";
   WebkitBoxShadow: "0 0 0 1000px white inset"
 };  
 const hintStyle = { 
@@ -18,7 +18,7 @@ const styles = {
     width: 10,
     margin: 5,
   }
-}
+};
 
 class TrainingDetails extends Component {
   constructor(props) {
@@ -37,13 +37,12 @@ class TrainingDetails extends Component {
 
   componentDidMount() {
     trainings.get(this.state.clientId, this.state.trainingId)
-      .then(response => {
-        console.log(response)
+      .then((response) => {
         this.setState({
           ...this.state,
           form: response.data.data
-        });
-      })
+        })
+      });
   }
 
   onInputChange = (event) => {
@@ -58,7 +57,7 @@ class TrainingDetails extends Component {
     trainings.put(this.state.clientId, this.state.trainingId, this.state.form)
       .then((response) => this.setState({
         ...this.state,
-      }))
+      }));
     alert("Nowy został edytowany.");
   }
 
@@ -96,7 +95,7 @@ class TrainingDetails extends Component {
           <RaisedButton style={styles.editButton} label="Usuń" onClick={() => this.onDelete(this.state.clientId, this.state.trainingId)} />
         </div>
       </Form>
-    )
+    );
   }
 }
 

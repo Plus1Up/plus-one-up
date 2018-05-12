@@ -30,8 +30,8 @@ class TrainingAdd extends Component {
         weekday: "",
       },
       clientId: this.props.clientId,
-    }
-  };
+    };
+  }
 
   componentDidMount() {
   }
